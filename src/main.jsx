@@ -9,22 +9,32 @@ import App from './App.jsx'
 import './index.css'
 
 
+
+
+
     import { HomeScreen } from './Screens/HomeScreen/HomeScreen.jsx'
-import PrivacyAndPolicy from './Screens/Privacy&Policy/PrivacyAndPolicy.jsx'
+    import PrivacyAndPolicy from './Screens/Privacy&Policy/PrivacyAndPolicy.jsx'
+
+
+
+
 
 
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
-    <Route  path="/" element={<HomeScreen/>} />
-    <Route  path="/privacy&policy" element={<PrivacyAndPolicy/>} />
-
+    <Route index={true} path="/" element={<HomeScreen/>} />
+    <Route path="/privacy&policy" element={<PrivacyAndPolicy/>} />
     </Route>
   )
 )
 
+
+
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router}/>
+    <RouterProvider router={router}/>
   </React.StrictMode>,
 )
