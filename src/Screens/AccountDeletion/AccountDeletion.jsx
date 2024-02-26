@@ -7,10 +7,13 @@ const AccountDeletion = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/auth/delete-account", {
-        email,
-        password,
-      })
+      .post(
+        "https://ramadan-planner-backend.vercel.app/api/auth/delete-account",
+        {
+          email,
+          password,
+        }
+      )
       .then((res) => {
         console.log(res.data);
       });
