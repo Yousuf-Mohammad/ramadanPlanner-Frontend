@@ -8,8 +8,7 @@ function App() {
   return (
         <>
           <Navbar/>
-            <main >
-             
+            <main className="container mx-auto mt-20 min-h-svh">
               <Outlet/>
               
             </main>

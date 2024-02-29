@@ -12,6 +12,8 @@ import "./index.css";
 import { HomeScreen } from "./Screens/HomeScreen/HomeScreen.jsx";
 import PrivacyPolicy from "./Screens/PrivacyPolicy/PrivacyPolicy.jsx";
 import AccountDeletion from "./Screens/AccountDeletion/AccountDeletion.jsx";
+import LoginScreen from "./Screens/LoginScreen/LoginScreen.jsx";
+import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/delete-account" element={<AccountDeletion />} />
+      <Route path="/login" element={<LoginScreen/>} />
+      <Route path="/registration" element={<RegisterScreen/>} />
     </Route>
   )
 );

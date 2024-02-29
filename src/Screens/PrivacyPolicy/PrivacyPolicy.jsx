@@ -1,11 +1,11 @@
 const PrivacyPolicy = () => {
   return (
-    <article className="bg-white px-40 pb-20 text-xl">
-      <h1 className="text-4xl mb-4 pt-4 text-center underline underline-offset-8 font-bold">
+    <article className="bg-white lg:px-40 pb-20 text-xl sm:mx-auto">
+      <h1 className=" lg:text-4xl mb-4 pt-4 text-center underline underline-offset-8 font-bold sm: text-2xl mx-auto">
         Privacy Policy
       </h1>
 
-      <p className="mb-4 text-justify">
+      <p className="lg:text-lg mb-4 text-justify sm:text-base mx-10">
         Tech Techies is immensely grateful for allowing us to communicate with
         you. The reason for this notice is so that Tech Techies can comply with
         the law on data protection and in so doing assure you that the personal
@@ -18,23 +18,23 @@ const PrivacyPolicy = () => {
         and safe custody of your personal information.
       </p>
 
-      <h4 className="text-xl mb-4 pt-4  underline underline-offset-8 ">
+      <h4 className="text-center text-xl font-bold mb-4 pt-4 underline underline-offset-8 ">
         Data Controller
       </h4>
 
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         If you have any concerns or complaints with regard to the processing of
         the personal information that you have provided to us you can contact
         Data Protection, at the following address: Tech Techis, Mohammadpur,
-        Dhaka, Bangladesh or by e-mail to: techtechies.bd@gmail.com. Tech
+        Dhaka, Bangladesh or by e-mail to: <b> techtechies.bd@gmail.com.</b> Tech
         Techies does not have a statutory Data Protection Officer and it is not
         required to have one.
       </p>
 
-      <h4 className="text-xl mb-4 pt-4  underline underline-offset-8 ">
+      <h4 className="text-center text-xl mb-4 pt-4 mx-10 underline underline-offset-8 font-bold">
         Purposes of Processing and Retention Period
       </h4>
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         Tech Techies has obtained from you some personal information today. This
         information is sufficient to identify you and to enable to communicate
         with you by the means that you have elected (such as email) and for the
@@ -46,19 +46,19 @@ const PrivacyPolicy = () => {
         once every year in order to verify that you wish us to continue to
         contact you in this way.
       </p>
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         We therefore hold your information for these purposes with your consent.
         You may withdraw your consent at any time by emailing
         techtechies.bd@gmail.com
       </p>
-      <h4 className="text-xl mb-4 pt-4  underline underline-offset-8 ">
+      <h4 className="text-center text-xl mb-4 pt-4 mx-10 underline underline-offset-8 font-bold">
         Recipients of Your Personal Data
       </h4>
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         Tech Techies does not sell, give, transfer or otherwise use your
         personal data other than for the purposes mentioned above.
       </p>
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         In order to enable us to receive personal data for the specified
         purposes, we may provide your identity to a number of services that
         automate your data, we have carefully selected these services in a
@@ -66,14 +66,14 @@ const PrivacyPolicy = () => {
         Making).
       </p>
 
-      <h4 className="text-xl mb-4 pt-4  underline underline-offset-8 ">
+      <h4 className="text-center text-xl mb-4 pt-4 mx-10 underline underline-offset-8 font-bold">
         Your Rights
       </h4>
-      <p className="mb-4 text-justify">
+      <p className="mb-4 text-justify sm:text-base mx-10">
         We are also obliged to explain to you your rights in respect of our
         processing of your personal data. These are:
       </p>
-      <ul className="list-disc">
+      <ul className="list-disc sm:text-base mx-10">
         <li>
           The right to request from Tech Techies a copy of your personal
           information as it is held by us. There is normally no charge for us

@@ -2,6 +2,6 @@
 
 export const HomeScreen = () => {
   return (
-    <div>HomeScreen</div>
+    <div className="container mx-auto mt-20 min-h-svh">HomeScreen</div>
   )
 }
