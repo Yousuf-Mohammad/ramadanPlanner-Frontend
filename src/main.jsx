@@ -14,6 +14,8 @@ import PrivacyPolicy from "./Screens/PrivacyPolicy/PrivacyPolicy.jsx";
 import AccountDeletion from "./Screens/AccountDeletion/AccountDeletion.jsx";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen.jsx";
 import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen.jsx";
+import ContactScreen from "./Screens/ContactScreen/ContactScreen.jsx";
+import AboutUsScreen from "./Screens/AboutUsScreen/AboutUsScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       <Route path="/delete-account" element={<AccountDeletion />} />
       <Route path="/login" element={<LoginScreen/>} />
       <Route path="/registration" element={<RegisterScreen/>} />
+      <Route path="/contactUs" element={<ContactScreen/>} />
+      <Route path="/aboutUs" element={<AboutUsScreen/>} />
     </Route>
   )
 );
