@@ -1,19 +1,59 @@
 
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import { useState ,useEffect } from 'react';
+import { useRegistrationMutation } from '../../redux/features/authentication/authSlice';
+import { setCredentials } from '../../redux/features/authentication/authToken';
+
+
 import Button from '../../shared/Button/Button';
 import logo from "../../assets/logoGreen.png"
+import { useDispatch, useSelector } from 'react-redux';
+
+
+
 const RegisterScreen = () => {
     const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const handleSubmit = (e) => {
+    
+    const dispatch =useDispatch();
+    const navigate =useNavigate();
+    const [register,]= useRegistrationMutation();//{isLoading} use 
+    const {userInfo} =useSelector((state)=>state.authToken)
+
+    const newUserData = {
+        email: email,
+        password1: password,
+        password2: confirmPassword,
+        first_name: firstName,
+        last_name:lastName,
+        };
+  
+
+    useEffect(()=>{
+        if(userInfo){
+            navigate("/");
+        }
+    },[userInfo,navigate]);
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        { confirmPassword===password?console.log('submitted'):alert('passwords dont match ')
+        if(password!== confirmPassword){
+            alert('Password do not match ');
+        }
+        else{
+            try {
+                const res = await register(newUserData).unwrap();
+                dispatch(setCredentials({...res,}));
+                alert(userInfo.message);
+                navigate("/login")
+            } catch (error) {
+                alert(error?.data?.message || error.message)
+            }
 
         }
-        
 
         };
 
@@ -38,16 +78,33 @@ const RegisterScreen = () => {
         </div>
             <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Your Name
+                First Name
                 </label>
                 <div className="mt-1">
                 <input
-                    id="name"
-                    name="name"
-                    type="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    autoComplete="name"
+                    id="firstName"
+                    name="firstName"
+                    type="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    autoComplete="firstName"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900  shadow-green-900 shadow-inner ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
+                />
+                </div>
+            </div>
+            <div>
+                <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
+                Last Name
+                </label>
+                <div className="mt-1">
+                <input
+                    id="lastName"
+                    name="lastName"
+                    type="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    autoComplete="lastName"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900  shadow-green-900 shadow-inner ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
                 />

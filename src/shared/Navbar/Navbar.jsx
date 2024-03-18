@@ -1,7 +1,24 @@
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import logo from "../../assets/lohoWhite.png"
+import { useDispatch, useSelector } from "react-redux"
+import { resetToken } from "../../redux/features/authentication/authToken"
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const {userInfo} =useSelector((state)=>state.authToken)
+  const navigate = useNavigate()
+  
+  const handleDelete = (e) => {
+    e.preventDefault();
+    try {
+        console.log("clicked");
+        dispatch(resetToken());
+        navigate("/")
+    } catch (error) {
+        alert(error?.data?.message || error.message)
+    }
+    };
+
   return (
   <div className=" bg-[#061E20] "> 
   <div className="navbar border-2 py-8 border-[#061E20] text-white">
@@ -19,7 +36,7 @@ const Navbar = () => {
           <ul className="p-2">
             <li><a>Edit Account</a></li>
             <li><Link to='/delete-account'>Delete Account</Link></li>
-            <li><a className="btn">Log Out</a></li>
+            <li><button onClick={()=>handleDelete}>Log Out</button></li>
           </ul>
         </li>
         
@@ -32,16 +49,16 @@ const Navbar = () => {
         <li><Link to='/aboutUs'>About</Link></li>
         <li><Link to='/contactUs'>Contact</Link></li>
     
-      <li>
+      {userInfo?(<li>
         <details>
-          <summary>User Name</summary>
+          <summary>{userInfo.user.first_name}</summary>
           <ul className="p-4 text-black">
-            <li><a>Edit Account</a></li>
+            {/* <li><a>Edit Account</a></li> */}
             <li><Link to='/delete-account'>Delete Account</Link></li>
-            <li><a className="btn">Log Out</a></li>
+            <li><button onClick={handleDelete}>Log Out</button></li>
           </ul>
         </details>
-      </li>
+      </li>):<Link to ="/login" className="btn ml-4 bg-teal-800 text-white border-0 text-lg hover:text-black">Login</Link>}
      
     </ul>
   </div>

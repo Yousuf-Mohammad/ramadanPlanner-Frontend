@@ -40,7 +40,7 @@ const salah=[
                 
             },
             {
-                name:"Taraweeh",
+                name:"Taraweh",
                 completedFard:false,
                 completedSunnah:false,
                 anySunnah:true,

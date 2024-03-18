@@ -1,17 +1,40 @@
 
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import { useState ,useEffect} from 'react';
 import Button from '../../shared/Button/Button';
 import logo from "../../assets/logoGreen.png"
+import { useDispatch, useSelector } from 'react-redux';
+import { useLoginMutation } from '../../redux/features/authentication/authSlice';
+import { setCredentials } from '../../redux/features/authentication/authToken';
+
 
 const LoginScreen = () => {
+
+    const dispatch = useDispatch();
+    const [login] =useLoginMutation();
+    const navigate =useNavigate()
+    const {userInfo} =useSelector((state)=>state.authToken); 
+
     const [email, setEmail] = useState("");
     // const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     // const [confirmPassword, setConfirmPassword] = useState("");
-    const handleSubmit = (e) => {
+
+    useEffect(()=>{
+        if(userInfo){
+            navigate("/");
+        }
+    },[userInfo,navigate]);
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log('submitted');
+        try {
+            const res = await  login({email,password}).unwrap();
+            dispatch(setCredentials({...res,}));
+            navigate("/")
+        } catch (error) {
+            alert(error?.data?.message || error.message)
+        }
         };
 
 

@@ -1,0 +1,23 @@
+.duaBg{
+    background-image: url('../../assets/dua.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.quranBg{
+    background-image: url('../../assets/quran.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.hadithBg{
+    background-image: url('../../assets/hadith.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.textBg{
+    background-color: #134e4a9d;
+    border-radius: 10px;
+}
