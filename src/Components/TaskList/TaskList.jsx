@@ -38,13 +38,13 @@ const TaskList = () => {
             
                     try {
                         const res = await addTodo({
-                            value:"do Something",
+                            value:"task 0",
                             day:8 ,
                             month:9,
                             year:1445
                         })
-                        console.log(res);
-                        setNewTodo({title:""})
+                        console.log("response from taskList: ", res);
+                        // setNewTodo({title:""})
                     } catch (error) {
                         alert(error?.data?.message || error.message)
                     }
@@ -90,7 +90,7 @@ const TaskList = () => {
 
             <form onSubmit={handleSubmit} >
             <input type="text" name="newTodo" id="newTodo" value={newTodo.title} placeholder="Add New Target" onChange={handleChange} required className="border px-4 py-1 border-black"/>
-            <button type='submit' className="px-12 py-1 block mx-auto mt-2 text-white text-lg rounded-md bg-teal-900 border border-black shadow-lg hover:shadow-black">Add Todo</button>
+            <button type='submit' className="px-12 py-1 block mx-auto mt-2 text-white text-lg rounded-md bg-teal-900 border border-black shadow-lg hover:shadow-black" >Add Todo</button>
             
             
             </form>
